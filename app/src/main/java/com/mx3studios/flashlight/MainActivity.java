@@ -8,7 +8,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-//import android.hardware.camera2.*;
 import android.hardware.Camera.*;
 
 import java.lang.reflect.ParameterizedType;
@@ -25,7 +24,6 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        mCameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
         isOn = false;
         mCamera = Camera.open();
         mParameters = mCamera.getParameters();
@@ -34,7 +32,7 @@ public class MainActivity extends ActionBarActivity {
         mFlashlightButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mParameters.setFlashMode(Parameters.FLASH_MODE_ON);
+//                mParameters.setFlashMode(Parameters.FLASH_MODE_ON);
                 if(!isOn){
 
                     mParameters.setFlashMode(Parameters.FLASH_MODE_TORCH);
@@ -45,8 +43,6 @@ public class MainActivity extends ActionBarActivity {
                     mParameters.setFlashMode(Parameters.FLASH_MODE_OFF);
                     mCamera.setParameters(mParameters);
                     mCamera.startPreview();
-//                    mCamera.stopPreview();
-//                    mCamera.release();
                     isOn = !isOn;
                 }
 
@@ -77,18 +73,10 @@ public class MainActivity extends ActionBarActivity {
     protected void onPause(){
         super.onPause();
 
-//        if(mCamera != null){
-//            mCamera.release();
-//            mCamera = null;
-//        }
     }
     @Override
     protected void onStop(){
         super.onStop();
-//        if(mCamera != null){
-//            mCamera.release();
-//            mCamera = null;
-//        }
     }
 
     @Override
