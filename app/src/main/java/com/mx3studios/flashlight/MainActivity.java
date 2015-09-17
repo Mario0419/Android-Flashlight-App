@@ -32,7 +32,7 @@ public class MainActivity extends ActionBarActivity {
 //        mFlashlightButton = (Button)findViewById(R.id.button_flashlight);
         mFlashLight = (ImageButton)findViewById(R.id.button_flashlight2);
 
-//       
+//
 
         mFlashLight.setOnClickListener(new View.OnClickListener(){
             @Override
