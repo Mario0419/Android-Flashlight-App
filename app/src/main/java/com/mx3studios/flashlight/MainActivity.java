@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.hardware.Camera.*;
+import android.widget.ImageButton;
 
 import java.lang.reflect.ParameterizedType;
 import java.security.Policy;
@@ -16,6 +17,7 @@ import java.security.Policy;
 public class MainActivity extends ActionBarActivity {
 
     private Button mFlashlightButton;
+    private ImageButton mFlashLight;
     private Camera mCamera;
     private boolean isOn;
     private Parameters mParameters;
@@ -27,12 +29,15 @@ public class MainActivity extends ActionBarActivity {
         isOn = false;
         mCamera = Camera.open();
         mParameters = mCamera.getParameters();
-        mFlashlightButton = (Button)findViewById(R.id.button_flashlight);
+//        mFlashlightButton = (Button)findViewById(R.id.button_flashlight);
+        mFlashLight = (ImageButton)findViewById(R.id.button_flashlight2);
 
-        mFlashlightButton.setOnClickListener(new View.OnClickListener() {
+//       
+
+        mFlashLight.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View v) {
-//                mParameters.setFlashMode(Parameters.FLASH_MODE_ON);
+            public void onClick(View v){
+
                 if(!isOn){
 
                     mParameters.setFlashMode(Parameters.FLASH_MODE_TORCH);
@@ -45,7 +50,6 @@ public class MainActivity extends ActionBarActivity {
                     mCamera.startPreview();
                     isOn = !isOn;
                 }
-
             }
         });
     }
